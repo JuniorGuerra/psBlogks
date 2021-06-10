@@ -29,6 +29,7 @@ func main() {
 	//Los archivos estaticos estan en localhost:port/static/nombre
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(dir))))
 	r.HandleFunc("/", home)
+	r.HandleFunc("/register", handle_register)
 	r.HandleFunc("/static/", pstatic)
 	r.HandleFunc("/user/{user}", user)
 

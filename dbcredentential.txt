@@ -1,0 +1,21 @@
+Credenciales de la base de dato
+
+mysql://
+
+username:
+b12a7d9f181e5f
+
+:
+password
+b906087e
+
+@
+cloud
+us-cdbr-east-04.cleardb.com
+
+/
+
+database_name
+heroku_47385c5b7a6b7fa
+
+?reconnect=true
