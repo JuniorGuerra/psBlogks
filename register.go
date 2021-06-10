@@ -6,15 +6,17 @@ import (
 )
 
 func handle_register(w http.ResponseWriter, r *http.Request) {
-	value := register("", "juniorguerrac17@gmail.com", "JuniorEnPrueba")
-	fmt.Println(value)
+	var name string
+	var email string
+	var pass string
+
+	result := register(name, email, pass)
+	fmt.Println(result)
 }
 
 func register(username, email, pass string) string {
 	if pass == "" || username == "" || email == "" {
 		return "usuario malo"
 	}
-
-	return "usuario disponible para el registro"
-
+	return insert_new_user(username, email, pass)
 }
