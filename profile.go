@@ -6,8 +6,12 @@ import (
 )
 
 func handle_perfil(w http.ResponseWriter, r *http.Request) {
-	for _, cookie := range r.Cookies() {
-		fmt.Fprintf(w, cookie.Value)
+	cookie, err := r.Cookie("username")
+	if err != nil {
+		http.Redirect(w, r, "/login", http.StatusFound)
+		return
 	}
+	fmt.Println("Interfaz de perfil de usuario 1.01")
+	fmt.Fprintf(w, "<h1>%s</h1>", cookie.Value)
 
 }

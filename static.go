@@ -7,11 +7,11 @@ import (
 
 // Handle404 ...
 func pstatic(w http.ResponseWriter, r *http.Request) {
-		t, err := template.ParseFiles("index.html")
+	t, err := template.ParseFiles("index.html")
 
-		if err != nil {
-			panic(err)
-		}
+	if err != nil {
+		panic(err)
+	}
 
-		t.Execute(w, r)
+	t.Execute(w, r)
 }

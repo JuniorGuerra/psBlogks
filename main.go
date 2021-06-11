@@ -34,6 +34,7 @@ func main() {
 	r.HandleFunc("/profile", handle_perfil)
 	r.HandleFunc("/static/", pstatic)
 	r.HandleFunc("/user/{user}", user)
+	r.HandleFunc("/create", handle_create)
 
 	srv := &http.Server{
 		Handler: r,

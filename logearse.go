@@ -6,18 +6,12 @@ import (
 )
 
 func handle_login(w http.ResponseWriter, r *http.Request) {
-	var username string
-	var pass string
+	//	var username string
+	//	var pass string
 
-	username = "juniorguerrac17@gmail.com"
-	pass = "Prueba2021"
-
-	user, mail := login(username, pass)
-	if user == "" || mail == "" {
-		fmt.Println("Usuario no registrado")
-	}
-	fmt.Println(user + mail)
-	http.Redirect(w, r, "user/"+user, http.StatusFound)
+	//	username = "juniorguerrac17@gmail.com"
+	//	pass = "Prueba2021"
+	fmt.Fprintf(w, "<h1>Ingrese los datos</h1>")
 
 }
 

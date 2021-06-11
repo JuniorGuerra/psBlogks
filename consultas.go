@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -86,4 +87,25 @@ func select_user_view(username string) (string, string) {
 	}
 	return v.username, v.description
 
+}
+
+func insert_new_book(title, body, author, category string) string {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	id := GenerateToken(title)
+	t := time.Now()
+	fecha := t.Format("2006-01-02 15:04:05")
+
+	consulta_sql := fmt.Sprintf("insert into post values ('%s', '%s', '%s','%s','%s', '%s' )", id, title, body, author, category, fecha)
+
+	_, err = db.Query(consulta_sql)
+	if err != nil {
+		return "No se ha podido publicar el libro"
+	}
+	return "Libro publicado correctamente"
 }
