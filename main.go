@@ -30,6 +30,8 @@ func main() {
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(dir))))
 	r.HandleFunc("/", home)
 	r.HandleFunc("/register", handle_register)
+	r.HandleFunc("/login", handle_login)
+	r.HandleFunc("/profile", handle_perfil)
 	r.HandleFunc("/static/", pstatic)
 	r.HandleFunc("/user/{user}", user)
 
@@ -40,9 +42,9 @@ func main() {
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
-	log.Fatal(srv.ListenAndServe())
 
 	fmt.Println("Server -> localhost:" + port)
+	log.Fatal(srv.ListenAndServe())
 
 }
 
