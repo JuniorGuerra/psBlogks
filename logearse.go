@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"html/template"
 	"net/http"
 )
 
@@ -11,8 +11,9 @@ func handle_login(w http.ResponseWriter, r *http.Request) {
 
 	//	username = "juniorguerrac17@gmail.com"
 	//	pass = "Prueba2021"
-	fmt.Fprintf(w, "<h1>Ingrese los datos</h1>")
 
+	tmp, _ := template.ParseFiles("public/login/index.html")
+	tmp.Execute(w, nil)
 }
 
 func login(username, pass string) (string, string) {

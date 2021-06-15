@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/public/register/style.css">
+  <title>Formulario Registro</title>
+</head>
+<body>
+  
+  <button class="switch" id="switch">
+    <span><i class="fas fa-sun"></i></span>
+    <span><i class="fas fa-moon"></i></span>
+  </button>
+  
+   <section class="form-register">    
+    <h4>REGISTRO</h4>
+    <form action="#">
+    <input class="controls" type="text" name="name" id="nombre" placeholder="Ingrese su Nombre Completo">
+    <input class="controls" type="email" name="email" id="correo" placeholder="Ingrese su Correo">
+    <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+    <input class="controls" type="password" name="rpassword" id="rpassword" placeholder="Repita su Contraseña">
+    <p>Aqui los <a href="/about">Terminos y Condiciones</a></p>
+    <div style="text-align: center;">
+    <input class="botons" type="submit" name="submit" value="Registrar">
+     </div>
+    <p><a href="/login">¿Ya tengo Cuenta?</a></p>
+  </form>
+  <script src="../static/public/register/main.js"></script>
+</body>
+</html>
