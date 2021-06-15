@@ -28,7 +28,7 @@ func insert_new_user(username, email, pass string) string {
 	_, err = db.Query(consulta)
 
 	if err != nil {
-		return "Nombre de usuario o email existente, intente con otro"
+		return "error"
 	}
 	return "Usuario registrado exitosamente"
 }
@@ -39,7 +39,7 @@ type user_registred struct {
 	pass  string
 }
 
-func select_user(username, pass string) (string, string) {
+func select_user(username, pass string) string {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 	db, err := sql.Open("mysql", link)
 
@@ -57,9 +57,9 @@ func select_user(username, pass string) (string, string) {
 		err = mysql.Scan(&v.user, &v.email, &v.pass)
 	}
 	if err != nil {
-		return "Usuario no existentes", "email no existente"
+		return "Usuario no existentes"
 	}
-	return v.user, v.email
+	return v.user
 }
 
 type data struct {
