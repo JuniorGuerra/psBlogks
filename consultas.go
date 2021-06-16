@@ -15,7 +15,7 @@ const (
 	database = "heroku_47385c5b7a6b7fa"
 )
 
-func insert_new_user(username, email, pass string) string {
+func insert_new_user(username, email, pass string) bool {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 
 	db, err := sql.Open("mysql", link)
@@ -28,9 +28,9 @@ func insert_new_user(username, email, pass string) string {
 	_, err = db.Query(consulta)
 
 	if err != nil {
-		return "error"
+		return false
 	}
-	return "Usuario registrado exitosamente"
+	return true
 }
 
 type user_registred struct {
@@ -57,7 +57,7 @@ func select_user(username, pass string) string {
 		err = mysql.Scan(&v.user, &v.email, &v.pass)
 	}
 	if err != nil {
-		return "Usuario no existentes"
+		return "NoUser"
 	}
 	return v.user
 }

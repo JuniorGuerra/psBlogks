@@ -33,7 +33,10 @@ func main() {
 	r.HandleFunc("/login", handle_login)
 	r.HandleFunc("/profile", handle_perfil)
 	r.HandleFunc("/static/", pstatic)
+	r.HandleFunc("/verify", datos_login)
+	r.HandleFunc("/verifynew", datos_register)
 	r.HandleFunc("/user/{user}", user)
+	r.HandleFunc("/delcook", deletecookie)
 	r.HandleFunc("/create", handle_create)
 
 	srv := &http.Server{

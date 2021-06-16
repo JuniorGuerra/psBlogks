@@ -6,7 +6,7 @@ import (
 )
 
 func handle_perfil(w http.ResponseWriter, r *http.Request) {
-	cookie, err := r.Cookie("username")
+	cookie, err := r.Cookie("user")
 	if err != nil {
 		http.Redirect(w, r, "/login", http.StatusFound)
 		return
