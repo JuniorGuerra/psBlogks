@@ -1,6 +1,6 @@
-var btn_style = document.getElementById('btn_style')
-btn_style.addEventListener("click", style)
 
+var btnSwitch = document.getElementById("luces")
+btnSwitch.addEventListener('click',style)
 
 var fondo = document.querySelector("body")
 var title = document.getElementById("title")

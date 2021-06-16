@@ -37,7 +37,7 @@ func datos_register(w http.ResponseWriter, r *http.Request) {
 	value := insert_new_user(name, email, pass)
 
 	if value == false {
-		http.Redirect(w, r, "/register", http.StatusFound)
+		http.Redirect(w, r, "/register", http.StatusNotFound)
 		return
 	}
 
@@ -45,5 +45,4 @@ func datos_register(w http.ResponseWriter, r *http.Request) {
 	cookie := http.Cookie{Name: "user", Value: name, Expires: expiration}
 	http.SetCookie(w, &cookie)
 	http.Redirect(w, r, "/profile", http.StatusFound)
-
 }
