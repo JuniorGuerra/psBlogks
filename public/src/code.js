@@ -56,8 +56,7 @@ function style() {
 
 
 
-$(document).ready(main);
-
+main()
 var contador = 1;
 
 function main () {
