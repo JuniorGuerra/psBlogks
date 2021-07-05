@@ -1,4 +1,21 @@
 
+/*Efecto del boton cambiante*/
+const btnSwitch = document.querySelector('#switch');
+
+btnSwitch.addEventListener('click', () => {
+	btnSwitch.classList.toggle('active');
+});
+
+
+if(localStorage.getItem('dark-mode') === 'true'){
+	btnSwitch.classList.add('active');
+} else {
+	btnSwitch.classList.remove('active');
+}
+
+
+
+
 var btn = document.getElementById("switch")
 btn.addEventListener("click", style)
 
@@ -64,20 +81,6 @@ function main () {
 	$('.submenu').click(function(){
 		$(this).children('.children').slideToggle();
 	});
-}
-
-/*Efecto del boton cambiante*/
-const btnSwitch = document.querySelector('#switch');
-
-btnSwitch.addEventListener('click', () => {
-	btnSwitch.classList.toggle('active');
-});
-
-
-if(localStorage.getItem('dark-mode') === 'true'){
-	btnSwitch.classList.add('active');
-} else {
-	btnSwitch.classList.remove('active');
 }
 
 
