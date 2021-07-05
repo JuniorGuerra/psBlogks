@@ -60,26 +60,22 @@ main()
 var contador = 1;
 
 function main () {
-	$('.menu_bar').click(function(){
+    var menu_bar = document.getElementById('menu_bar')
+    var nav = document.getElementById('nav')
+	menu_bar.addEventListener("click",function(){
 		if (contador == 1) {
-			$('nav').animate({
-				left: '0'
-			});
+			nav.style.left = "0"
 			contador = 0;
         llanada.innerHTML = "Menu"
 		} else {
 			contador = 1;
-			$('nav').animate({
-				left: '-100%'
-			});
+            nav.style.left="-100%"
             llanada.innerHTML = ""
 		}
 	});
 
 	// Mostramos y ocultamos submenus
-	$('.submenu').click(function(){
-		$(this).children('.children').slideToggle();
-	});
+
 }
 
 
