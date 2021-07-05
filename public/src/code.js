@@ -1,6 +1,6 @@
 
-var btnSwitch = document.getElementById("luces")
-btnSwitch.addEventListener('click',style)
+var btn = document.getElementById("switch")
+btn.addEventListener("click", style)
 
 var fondo = document.querySelector("body")
 var title = document.getElementById("title")
@@ -22,7 +22,6 @@ function style() {
         b_register.style.color = "#C80F53"
         b_register.style.background = "#DDDDDD"
         llanada.style.background = "#C80F53"
-        btn_style.textContent = "Claro"
         color = 1
     } else {
         fondo.style.background = "#DDDDDD";
@@ -32,7 +31,6 @@ function style() {
         b_login.style.color = "#000"
         b_register.style.color = "#DDDDDD"
         b_register.style.background = "#000"
-        btn_style.textContent = "Oscuro"
         color = 0
     }
 }
@@ -66,6 +64,20 @@ function main () {
 	$('.submenu').click(function(){
 		$(this).children('.children').slideToggle();
 	});
+}
+
+/*Efecto del boton cambiante*/
+const btnSwitch = document.querySelector('#switch');
+
+btnSwitch.addEventListener('click', () => {
+	btnSwitch.classList.toggle('active');
+});
+
+
+if(localStorage.getItem('dark-mode') === 'true'){
+	btnSwitch.classList.add('active');
+} else {
+	btnSwitch.classList.remove('active');
 }
 
 

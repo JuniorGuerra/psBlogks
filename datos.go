@@ -32,11 +32,11 @@ func datos_login(w http.ResponseWriter, r *http.Request) {
 func datos_register(w http.ResponseWriter, r *http.Request) {
 	name := r.FormValue("name")
 	email := r.FormValue("email")
-	pass := r.FormValue("pass")
-
+	pass := r.FormValue("password")
+	fmt.Println(name, email, pass)
 	value := insert_new_user(name, email, pass)
 
-	if value == false {
+	if !value {
 		http.Redirect(w, r, "/register", http.StatusNotFound)
 		return
 	}

@@ -105,9 +105,6 @@ li a:hover {
     top: 50px;
 }
 
-
-
-
 .switch {
   background: #343D5B;
   border-radius: 1000px;
@@ -152,4 +149,9 @@ li a:hover {
   display: block;
   background: none;
   color: #fff;
+}
+
+.ocultar{
+  position: absolute;
+  top: 50px;
 }

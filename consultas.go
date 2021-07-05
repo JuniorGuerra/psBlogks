@@ -25,12 +25,10 @@ func insert_new_user(username, email, pass string) bool {
 	}
 
 	consulta := fmt.Sprintf("insert into users values ('%s','%s', '%s')", username, email, pass)
+	fmt.Println("Fase: consulta" + consulta)
 	_, err = db.Query(consulta)
 
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
 
 type user_registred struct {
@@ -59,13 +57,13 @@ func select_user(username, pass string) string {
 	if err != nil {
 		return "NoUser"
 	}
+	fmt.Println(v.user, v.email)
 	return v.user
 }
 
 type data struct {
-	username    string
-	image       byte
-	phone       string
+	username string
+	//image       byte
 	description string
 }
 
@@ -83,7 +81,7 @@ func select_user_view(username string) (string, string) {
 		return "usuario no registrado", ""
 	}
 	for mysql.Next() {
-		err = mysql.Scan(&v.username, &v.description)
+		mysql.Scan(&v.username, &v.description)
 	}
 	return v.username, v.description
 
