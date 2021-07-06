@@ -55,7 +55,7 @@ func select_user(username, pass string) string {
 		err = mysql.Scan(&v.user, &v.email, &v.pass)
 	}
 	if err != nil {
-		return "NoUser"
+		return ""
 	}
 	fmt.Println(v.user, v.email)
 	return v.user

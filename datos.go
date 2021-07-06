@@ -17,10 +17,11 @@ func datos_login(w http.ResponseWriter, r *http.Request) {
 
 	name = select_user(name, pass)
 
-	if name == "noUser" {
-		http.Redirect(w, r, "/login", http.StatusFound)
+	if name == "" {
+		http.Redirect(w, r, "/login?d=fail", http.StatusFound)
 		return
 	}
+
 	fmt.Println(name)
 	expiration := time.Now().Add(365 * 24 * time.Hour)
 	cookie := http.Cookie{Name: "user", Value: name, Expires: expiration}
@@ -37,7 +38,7 @@ func datos_register(w http.ResponseWriter, r *http.Request) {
 	value := insert_new_user(name, email, pass)
 
 	if !value {
-		http.Redirect(w, r, "/register", http.StatusNotFound)
+		http.Redirect(w, r, "/register?d=fail", http.StatusFound)
 		return
 	}
 
