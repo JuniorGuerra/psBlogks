@@ -17,7 +17,7 @@ func datos_login(w http.ResponseWriter, r *http.Request) {
 
 	name = select_user(name, pass)
 
-	if name == "NoUser" {
+	if name == "" {
 		http.Redirect(w, r, "/login?d=fail", http.StatusFound)
 		return
 	}
