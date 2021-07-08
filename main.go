@@ -32,6 +32,8 @@ func main() {
 	r.HandleFunc("/register", handle_register)
 	r.HandleFunc("/login", handle_login)
 	r.HandleFunc("/profile", handle_perfil)
+	r.HandleFunc("/edit/profile", handle_edit_profile)
+	r.HandleFunc("/edit/book", handle_edit_book)
 	r.HandleFunc("/static/", pstatic)
 	r.HandleFunc("/verify", datos_login)
 	r.HandleFunc("/verifynew", datos_register)
