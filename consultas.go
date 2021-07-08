@@ -61,6 +61,32 @@ func select_user(username, pass string) string {
 	return v.user
 }
 
+//Sucia recoleccion del gmail, busqueda mas segura proximamente cuando busque mysql worbeach ahhaha
+
+func select_gmail(username string) string {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	v := user_registred{}
+	consulta_sql := fmt.Sprintf("select * from users where username = '%s'", username)
+	mysql, err := db.Query(consulta_sql)
+	if err != nil {
+		panic(err)
+	}
+	for mysql.Next() {
+		err = mysql.Scan(&v.user, &v.email, &v.pass)
+	}
+	if err != nil {
+		return ""
+	}
+	fmt.Println(v.user, v.email)
+	return v.email
+}
+
 type data struct {
 	username string
 	//image       byte
@@ -78,6 +104,7 @@ func select_user_view(username string) (string, string) {
 	consulta_sql := fmt.Sprintf("select username, descripcion from dates where username = '%s'", username)
 	mysql, err := db.Query(consulta_sql)
 	if err != nil {
+		fmt.Println(err)
 		return "usuario no registrado", ""
 	}
 	for mysql.Next() {

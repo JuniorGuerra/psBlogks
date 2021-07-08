@@ -13,10 +13,12 @@
 </head>
 
 <body onload="oscuro()" id="body">
-    <button class="switch" id="switchs">
-        <span><i class="fas fa-sun" id="fast"></i></span>
-        <span><i class="fas fa-moon" id="fast"></i></span>
-    </button>
+    <div class="solo">
+        <button class="switch" id="switchs">
+            <span><i class="fas fa-sun" id="fast"></i></span>
+            <span><i class="fas fa-moon" id="fast"></i></span>
+        </button>
+    </div>
 
     <form class="formulario" id="form" action="/verify">
         <!--Error todo nose de Alexis el > De la imagen-->
@@ -24,12 +26,13 @@
         <div class="contenedor" id="contenedor">
             <div class="input-contenedor" id="input-cont">
                 <i class="fas fa-user" id="fas"></i>
-                <input type="text" required name="email" re: class="correo" id="correo" placeholder="Correo Electrónico" />
+                <input type="text" required name="email" re: class="correo" id="correo"
+                    placeholder="Correo Electrónico" />
             </div>
 
             <div class="input-contenedor" id="input-cont">
                 <i class="fas fa-key" id="fas2"></i>
-                <input type="password" required class="contra" name = "pass" id="contra" placeholder="Contraseña" />
+                <input type="password" required class="contra" name="pass" id="contra" placeholder="Contraseña" />
             </div>
 
             <input type="submit" value="Iniciar Sesión" class="button" id="inicio" />

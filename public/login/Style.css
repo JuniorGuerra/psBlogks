@@ -272,3 +272,9 @@ body {
         min-width:0px;
     }
 }
+
+
+.solo{
+    position: absolute;
+    top: 0px;
+}

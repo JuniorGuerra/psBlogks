@@ -22,12 +22,20 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 	}
 
 	name_user, resume_user := select_user_view(cookie.Value)
+	for i := 0; i < 30; i++ {
+		//Este es un for vacio, pero es para que no me ejecute los 2 datos al mismo tiempo y asi evitar un posible error de tcp
+	}
+	gmail_user := select_gmail(cookie.Value)
+
+	if resume_user == "" {
+		resume_user = "Aun no tienes informacion para mostrar"
+	}
 
 	user_data := data_user{
 		Name:     "Perfil: " + cookie.Value,
 		Username: name_user,
 		Resumen:  resume_user,
-		Email:    "email@example.com",
+		Email:    gmail_user,
 	}
 	tmp.Execute(w, user_data)
 
