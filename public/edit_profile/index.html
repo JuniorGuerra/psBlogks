@@ -17,10 +17,10 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col">
-                <form action="" method="post" class="form-control">
+                <form action="/verify_edit_profile" method="post" class="form-control">
                     <h2>Imagen de perfil</h2>
-                    <img src="../image/Eslogan_blogbook.png" style="width: 10rem; height: 10rem;">
-                    <button class="btn-primary form-control">Buscar</button>
+                    <img id="output" style="width: 10rem; height:10rem;" />
+                    <input type="file" class="btn btn-primary form-control" accept="image/*" onchange="loadFile(event)">
                     <h2>Resumen personal</h2>
                     <textarea class="form-control" name="" id="" cols="10" rows="5"></textarea>
                     <button type="submit" class="form-control btn-secondary">Guardar</button>
@@ -28,6 +28,16 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        var loadFile = function (event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function () {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+    </script>
 </body>
 
 </html>
