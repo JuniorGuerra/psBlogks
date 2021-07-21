@@ -17,26 +17,47 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col">
-                <form action="/verify_edit_profile" method="post" class="form-control">
+                <form action="/verify_edit_profile" class="form-control">
                     <h2>Imagen de perfil</h2>
-                    <img id="output" style="width: 10rem; height:10rem;" />
-                    <input type="file" class="btn btn-primary form-control" accept="image/*" onchange="loadFile(event)">
+                    <div id="showimg"></div>
+                    <label for="">Menos de 1 mg</label>
+                    <input type="file" id="fileId" onchange="imageUploaded()" class="form-control" required>
+                    <input type="text" id="img_id" style="visibility:hidden" name="img" required>
                     <h2>Resumen personal</h2>
-                    <textarea class="form-control" name="" id="" cols="10" rows="5"></textarea>
+                    <textarea class="form-control" name="resume" id="" cols="10" rows="5" required></textarea>
                     <button type="submit" class="form-control btn-secondary">Guardar</button>
                 </form>
             </div>
         </div>
     </div>
-    
+
     <script>
-        var loadFile = function (event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-            output.onload = function () {
-                URL.revokeObjectURL(output.src) // free memory
-            }
-        };
+let base64String = "";
+
+function imageUploaded() {
+    var img_send = document.getElementById("img_id")
+    var img = document.getElementById('showimg')
+	var file = document.querySelector(
+		'input[type=file]')['files'][0];
+
+	var reader = new FileReader();
+	console.log("next");
+	
+	reader.onload = function () {
+		base64String = reader.result.replace("data:", "")
+			.replace(/^.+,/, "");
+
+		imageBase64Stringsep = base64String;
+
+		// alert(imageBase64Stringsep);
+		console.log(base64String);
+img.innerHTML = "<img id='img' style='width: 10rem; height:10rem;' src='data:image/png;base64," + base64String +  " '/>"
+        img_send.value = base64String;
+        console.log(img_send.value)
+	}
+	reader.readAsDataURL(file);
+}
+
     </script>
 </body>
 

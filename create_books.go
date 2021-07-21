@@ -20,6 +20,6 @@ func handle_create(w http.ResponseWriter, r *http.Request) {
 	category := "fantasia"
 
 	result := insert_new_book(title, body, author, category)
-	fmt.Fprintf(w, result)
+	fmt.Println(result)
 
 }

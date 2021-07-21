@@ -34,11 +34,13 @@ func main() {
 	r.HandleFunc("/profile", handle_perfil)
 	r.HandleFunc("/edit/profile", handle_edit_profile)
 	r.HandleFunc("/edit/book", handle_edit_book)
+	r.HandleFunc("/verify_edit_profile", verify_edit_profile)
 	r.HandleFunc("/static/", pstatic)
 	r.HandleFunc("/verify", datos_login)
 	r.HandleFunc("/verifynew", datos_register)
 	r.HandleFunc("/user/{user}", user)
 	r.HandleFunc("/delcook", deletecookie)
+	r.HandleFunc("/Contactenos", contactenos)
 	r.HandleFunc("/create", handle_create)
 
 	srv := &http.Server{
@@ -61,4 +63,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	tmp.Execute(w, "Helpme")
+}
+
+func contactenos(w http.ResponseWriter, r *http.Request) {
+	tmp, err := template.ParseFiles("public/contacto/index.html")
+
+	if err != nil {
+		panic(err)
+	}
+	tmp.Execute(w, nil)
+
 }
