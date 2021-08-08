@@ -13,17 +13,21 @@ func handle_edit_profile(w http.ResponseWriter, r *http.Request) {
 func verify_edit_profile(w http.ResponseWriter, r *http.Request) {
 	img := r.FormValue("img")
 	resume := r.FormValue("resume")
+	phone := r.FormValue("phone")
 
-	/*	if img != "" && resume != "" {
-		//Errores verificar aqui
-	}*/
+	if img == "" || resume == "" {
+		http.Redirect(w, r, "/edit/profile", http.StatusFound)
+		return
+	}
 
-	//Esta funcion es para almacenar la imagen en nuestra database
+	//img2html := "<html><body><img class="img_profile" alt="imagen_perfil_usuario" src=\"data:image/png;base64," + img + "\" /></body></html>"
+	name, err := r.Cookie("user")
 
-	img2html := "<html><body><img src=\"data:image/png;base64," + img + "\" /></body></html>"
+	if err != nil {
+		panic(err)
+	}
 
-	w.Write([]byte(img2html))
-	w.Write([]byte(resume))
+	insert_data_profile(img, name.Value, phone, resume)
 }
 
 func handle_edit_book(w http.ResponseWriter, r *http.Request) {

@@ -21,8 +21,11 @@
                     <h2>Imagen de perfil</h2>
                     <div id="showimg"></div>
                     <label for="">Menos de 1 mg</label>
-                    <input type="file" id="fileId" onchange="imageUploaded()" class="form-control" required>
-                    <input type="text" id="img_id" style="visibility:hidden" name="img" required>
+                    <input type="file" id="fileId" onchange="imageUploaded()" class="form-control">
+                    <input type="text" id="img_id" style="visibility:hidden" name="img">
+                    <label for="phone">Ingrese su numero de telefono</label>
+                    <input type="text" class="form-control" name="phone" placeholder="numero telefono">
+                    <br>
                     <h2>Resumen personal</h2>
                     <textarea class="form-control" name="resume" id="" cols="10" rows="5" required></textarea>
                     <button type="submit" class="form-control btn-primary">Guardar</button>

@@ -88,12 +88,13 @@ func select_gmail(username string) string {
 }
 
 type data struct {
-	username string
-	//image       byte
+	username    string
+	image       string
+	phone       string
 	description string
 }
 
-func select_user_view(username string) (string, string) {
+func select_user_view(username string) (string, string, string, string) {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 	db, err := sql.Open("mysql", link)
 
@@ -101,16 +102,16 @@ func select_user_view(username string) (string, string) {
 		panic(err)
 	}
 	v := data{}
-	consulta_sql := fmt.Sprintf("select username, descripcion from dates where username = '%s'", username)
+	consulta_sql := fmt.Sprintf("select * from dates where username = '%s'", username)
 	mysql, err := db.Query(consulta_sql)
 	if err != nil {
 		fmt.Println(err)
-		return "usuario no registrado", ""
+		return "usuario no registrado", "", "", ""
 	}
 	for mysql.Next() {
-		mysql.Scan(&v.username, &v.description)
+		mysql.Scan(&v.image, &v.username, &v.phone, &v.description)
 	}
-	return v.username, v.description
+	return v.image, v.username, v.phone, v.description
 
 }
 
@@ -133,4 +134,21 @@ func insert_new_book(title, body, author, category string) string {
 		return "No se ha podido publicar el libro"
 	}
 	return "Libro publicado correctamente"
+}
+
+func insert_data_profile(img, name, phone, description string) {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	consulta_sql := fmt.Sprintf("insert into dates values('%s','%s','%s','%s')", img, name, phone, description)
+
+	_, err = db.Query(consulta_sql)
+
+	if err != nil {
+		panic(err)
+	}
 }
