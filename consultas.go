@@ -155,6 +155,7 @@ func insert_data_profile(img, name, phone, description string) {
 
 type users_registred struct {
 	name string
+	info string
 }
 
 func select_users_query_all(date string) []users_registred {
@@ -167,16 +168,16 @@ func select_users_query_all(date string) []users_registred {
 
 	v := users_registred{}
 	va := []users_registred{}
-	consulta_sql := "select username from users where username like " + "'%" + date + "%'"
+	consulta_sql := "select users.username, dates.descripcion from users, dates where users.username = dates.username && users.username like " + "'%" + date + "%'"
 	fmt.Println(consulta_sql)
 	mysql, err := db.Query(consulta_sql)
 	if err != nil {
 		panic(err)
 	}
 	for mysql.Next() {
-		mysql.Scan(&v.name)
+		mysql.Scan(&v.name, &v.info)
 		va = append(va, v)
 	}
-	print(va)
+	fmt.Println("Consulta", va)
 	return va
 }
