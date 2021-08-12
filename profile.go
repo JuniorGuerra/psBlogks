@@ -6,7 +6,6 @@ import (
 )
 
 type data_user struct {
-	Image    string
 	Name     string
 	Username string
 	Phone    string
@@ -32,15 +31,17 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 	if resume_user == "" {
 		resume_user = "Aun no tienes informacion para mostrar"
 	}
-	image := "\"data:image/png;base64," + image_user + "\" "
+	//image := "\"data:image/png;base64," + image_user + "\" "
 	user_data := data_user{
-		Image:    image,
 		Name:     "Perfil: " + cookie.Value,
 		Username: name_user,
 		Phone:    phone_user,
 		Resumen:  resume_user,
 		Email:    gmail_user,
 	}
+	var text string = "<div><img src=\"data:image/png;base64," + image_user + "\" alt='Imagen profile user' class='perfil_img'></div>"
+
+	w.Write([]byte(text))
 	tmp.Execute(w, user_data)
 
 }

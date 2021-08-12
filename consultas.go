@@ -152,3 +152,31 @@ func insert_data_profile(img, name, phone, description string) {
 		panic(err)
 	}
 }
+
+type users_registred struct {
+	name string
+}
+
+func select_users_query_all(date string) []users_registred {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	v := users_registred{}
+	va := []users_registred{}
+	consulta_sql := "select username from users where username like " + "'%" + date + "%'"
+	fmt.Println(consulta_sql)
+	mysql, err := db.Query(consulta_sql)
+	if err != nil {
+		panic(err)
+	}
+	for mysql.Next() {
+		mysql.Scan(&v.name)
+		va = append(va, v)
+	}
+	print(va)
+	return va
+}

@@ -5,22 +5,7 @@
   a {
     text-decoration: none
   }
-
-  .img_profile {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    margin-top: -15px;
-  }
-
-  .perfil_img{
-    position: absolute;
-    width: 80px;
-    top: 20px;
-    margin-left: 83%;
-    border-radius: 50px;
-  }
-
+  
   .switch {
     background: #343D5B;
     border-radius: 1000px;
@@ -53,7 +38,7 @@
   .switch.active {
     background: rgb(184, 2, 159);
     color: #000;
-  }
+}
 
   .switch.active::after {
     right: 0;
