@@ -23,6 +23,6 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 	query_users := select_users_query_all(name)
 	for _, val := range query_users {
-		w.Write([]byte("<h2>" + val.name + "</h2>"))
+		w.Write([]byte("<a href='https://bsblogbook.herokuapp.com/user/" + val.name + "'><h2>" + val.name + "</h2></a>"))
 	}
 }
