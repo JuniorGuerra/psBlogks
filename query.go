@@ -22,7 +22,9 @@ func query(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, d)
 
 	query_users := select_users_query_all(name)
+	w.Write([]byte("<div class='text' id='text'>"))
 	for _, val := range query_users {
 		w.Write([]byte("<a href='https://bsblogbook.herokuapp.com/user/" + val.name + "'><h2>" + val.name + "</h2></a>"))
 	}
+	w.Write([]byte("</div>"))
 }

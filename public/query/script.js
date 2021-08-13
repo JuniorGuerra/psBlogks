@@ -19,14 +19,17 @@ var btn = document.getElementById("switch")
 btn.addEventListener("click", style)
 
 var fondo = document.querySelector("body")
+var text = document.getElementById("text")
 
 var color = 0;
 
 function style() {
     if (color == 0) {
         fondo.style.background = "#000000";
+        text.style.color = "#FFF"
         color = 1
     } else {
+        text.style.color = "#000"
         fondo.style.background = "#DDDDDD";
         color = 0
     }
