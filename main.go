@@ -43,7 +43,8 @@ func main() {
 	r.HandleFunc("/delcook", deletecookie)
 	r.HandleFunc("/Contactenos", contactenos)
 	r.HandleFunc("/create", handle_create)
-	r.HandleFunc("/BNew", handle_create)
+	r.HandleFunc("/Bnew", handle_create)
+	r.HandleFunc("/exit", deletecookie)
 
 	srv := &http.Server{
 		Handler: r,

@@ -13,6 +13,9 @@ Grisesito: DDDDDD
 .logo2 {
   width: 60px;
 }
+*{
+  transition: 1s;
+}
 
 body {
   background-color: #dddddd;

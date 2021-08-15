@@ -68,3 +68,13 @@
     background: none;
     color: #fff;
   }
+
+  .btn_floating{
+    background-color: rgb(184, 2, 159);
+    width:50px;
+    height:50px;
+    border-radius: 25px;
+    position:absolute;
+    top:0;
+    margin-left: 95%;
+  }
