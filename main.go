@@ -54,7 +54,7 @@ func main() {
 		ReadTimeout:  15 * time.Second,
 	}
 
-	fmt.Println("Server -> localhost:" + port)
+	fmt.Println("http://localhost:" + port + "/")
 	log.Fatal(srv.ListenAndServe())
 
 }
