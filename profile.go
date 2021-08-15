@@ -22,6 +22,11 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if cookie.Value == "null" {
+		http.Redirect(w, r, "/login", http.StatusFound)
+		return
+	}
+
 	image_user, name_user, phone_user, resume_user := select_user_view(cookie.Value)
 	for i := 0; i < 30; i++ {
 		//Este es un for vacio, pero es para que no me ejecute los 2 datos al mismo tiempo y asi evitar un posible error de tcp
