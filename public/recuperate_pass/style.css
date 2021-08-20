@@ -1,0 +1,214 @@
+/*
+Colores de la pagina:
+Negro: 000000
+Cian: 00E1D8
+Fusia: C80F53
+Grisesito: DDDDDD
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("Img/Eslogan4_blogbook.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #DDDDDD;   
+}
+* {
+    box-sizing: border-box;
+}
+.formulario {
+    margin: auto;
+    width: 600px;
+    background-color: #ddddddda;
+    margin-top: 17%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #000000;
+}
+.h {
+    text-align: center;
+    color: #C80F53;
+    font-size: 40px;
+    text-shadow: 0 0 4px #00E1D8;   
+}
+p {
+    color: #000000;
+    font-size: 19px;
+    text-align: center;
+    cursor: text;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.link{
+    text-decoration: none;
+    font-weight: bold;
+    color:#000000;
+}
+.cancelar {
+    margin-top: 8px;
+    display: inline-block;;
+    border-style:hidden;
+    background-color: #d4d3d3;
+    box-shadow: 0 0 4px #000000;
+    font-weight: normal;
+    font-size: 17px;
+    vertical-align: middle;
+    text-align: center;
+    width: 20%;
+    border-radius: 5px;
+    height: 40px;
+}
+.text{
+    margin-left: 10px;
+    font-size: 20px;
+    width: 330px;
+    padding: 10px;
+    border: none;
+    background-color: #ffffff00;
+    color: rgb(0, 0, 0);
+    outline:none;    
+}
+.fa-envelope {
+    margin-top: 10px;
+    margin-left: 40px;
+    min-width: 20px;
+    text-align: left;
+    color: #505050;
+}
+.input-contenedor {
+    margin-bottom: 1px;
+    border: 1px solid #3e413c;
+    border-radius: 10px;
+    width: 450px;
+    margin: auto;
+}
+.button {
+    margin-left: 275px;
+    border-style: hidden;
+    width: 20%;
+    color: #000000;
+    font-size: 17px;
+    margin-top: 10px;
+    box-shadow: 0 0 4px #000000;
+    background-color: #00E1D8;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+    position:relative;
+}
+.fa-sun {
+    margin-top: 7px;
+    min-width: 0px;
+    color: #000000;   
+}
+.fa-moon {
+    margin-top: 7px;
+    min-width: 0px;
+    color: #C80F53;
+}
+.switch {
+    background: #000000;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    outline: none;
+}
+.switch::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.switch.active {
+    background: #C80F53;
+    color: #000;
+}
+.switch.active::after {
+    right: 0;
+    left: unset;
+}
+.switch span {
+    width: 26px;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+    background: none;
+    color: #fff;
+}
+
+/*MODO OSCURO*/
+
+.body_oscuro {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("Img/Eslogan5_blogbook.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #131313;   
+}
+
+.formulario_oscuro {
+    background-color: #131313de;
+    box-shadow: 0 0 30px #DDDDDD;
+}
+.h_oscuro {
+    color: #00E1D8;   
+    text-shadow: 0 0 4px #C80F53;   
+}
+.texto_oscuro {
+    color: #ffffff;
+}
+
+.text_oscuro {
+    background-color: #ffffff00;
+    color: #ffffff;
+}
+.fa-envelope {
+    margin-top: 10px;
+    margin-left: 40px;
+    min-width: 20px;
+    text-align: left;
+    color: #505050;
+}
+.input-contenedor {
+    margin-bottom: 1px;
+    border: 1px solid #3e413c;
+    border-radius: 10px;
+    width: 450px;
+    margin: auto;
+}
+.button_oscuro {   
+    color: #DDDDDD;   
+    background-color: #C80F53;
+    box-shadow: 0 0 4px #DDDDDD;
+}
+.link_oscuro{
+    text-decoration: none;
+    font-weight: bold;
+    color:#DDDDDD ;
+}
+.cancelar_oscuro {
+    background-color: #131313;
+    box-shadow: 0 0 4px #DDDDDD;
+}
+@media screen and (max-width:800px){
+    .formulario {
+    margin-top: 50%;
+}
+}

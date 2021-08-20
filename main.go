@@ -46,6 +46,7 @@ func main() {
 	r.HandleFunc("/create", handle_create)
 	r.HandleFunc("/Bnew", handle_create)
 	r.HandleFunc("/exit", deletecookie)
+	r.HandleFunc("/pass", recuperate)
 
 	srv := &http.Server{
 		Handler: r,
