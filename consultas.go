@@ -6,6 +6,7 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
+	"golang.org/x/crypto/bcrypt"
 )
 
 const (
@@ -24,7 +25,15 @@ func insert_new_user(username, email, pass string) bool {
 		panic(err)
 	}
 
-	consulta := fmt.Sprintf("insert into users values ('%s','%s', '%s')", username, email, pass)
+	passByte := []byte(pass)
+	hash, err := bcrypt.GenerateFromPassword(passByte, bcrypt.DefaultCost)
+	if err != nil {
+		return err != nil
+	}
+	hashStringPass := string(hash)
+
+	consulta := fmt.Sprintf("insert into users values ('%s','%s', '%s')", username, email, hashStringPass)
+
 	fmt.Println("Fase: consulta" + consulta)
 	_, err = db.Query(consulta)
 
@@ -46,7 +55,8 @@ func select_user(username, pass string) string {
 	}
 
 	v := user_registred{}
-	consulta_sql := fmt.Sprintf("select * from users where (username = '%s' or email = '%s') && contraseña = '%s'", username, username, pass)
+	consulta_sql := fmt.Sprintf("select * from users where (username = '%s' or email = '%s')", username, username)
+
 	mysql, err := db.Query(consulta_sql)
 	if err != nil {
 		panic(err)
@@ -54,9 +64,20 @@ func select_user(username, pass string) string {
 	for mysql.Next() {
 		err = mysql.Scan(&v.user, &v.email, &v.pass)
 	}
+
 	if err != nil {
 		return ""
 	}
+
+	PassHashByte := []byte(v.pass)
+	passByte := []byte(pass)
+	verify := bcrypt.CompareHashAndPassword(PassHashByte, passByte)
+
+	if verify != nil {
+		fmt.Println("Las contraseñas NOPE coinciden")
+		return ""
+	}
+
 	fmt.Println(v.user, v.email)
 	return v.user
 }
