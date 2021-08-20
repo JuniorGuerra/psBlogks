@@ -25,7 +25,7 @@
     background: #343D5B;
     border-radius: 1000px;
     border: none;
-    position: relative;
+    position: absolute;
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
