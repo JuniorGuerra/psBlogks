@@ -34,9 +34,6 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-auto">
-        <img src="../static/public/image/Eslogan_blogbook.png" class="img_profile" alt="imagen_perfil_usuario">
-      </div>
       <div class="col-5">
         <h1 id="user">{{.Username}}</h1>
         <p id="resumen">{{.Resumen}}</p>
@@ -45,7 +42,7 @@
 
       </div>
       <div class="col-md-auto">
-        <form action="/user" class="row g-3">
+        <form action="/user" class="row">
           <div class="col-auto">
             <label for="inputQuery" class="visually-hidden">Buscar</label>
             <input type="text" class="form-control" placeholder="Buscar" name="buscar">
@@ -86,6 +83,8 @@
     </div>
 
   </div>
+
+  <img src="" alt="Img" class="perfil_img">
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

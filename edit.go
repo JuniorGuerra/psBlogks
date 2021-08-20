@@ -27,7 +27,9 @@ func verify_edit_profile(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	insert_data_profile(img, name.Value, phone, resume)
+	update_data_profile(img, name.Value, phone, resume)
+
+	http.Redirect(w, r, "/profile", http.StatusFound)
 }
 
 func handle_edit_book(w http.ResponseWriter, r *http.Request) {

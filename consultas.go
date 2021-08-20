@@ -20,7 +20,7 @@ func insert_new_user(username, email, pass string) bool {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 
 	db, err := sql.Open("mysql", link)
-	defer db.Close()
+
 	if err != nil {
 		panic(err)
 	}
@@ -37,6 +37,9 @@ func insert_new_user(username, email, pass string) bool {
 	fmt.Println("Fase: consulta" + consulta)
 	_, err = db.Query(consulta)
 
+	update_data_profile("", username, "", "")
+
+	db.Close()
 	return err == nil
 }
 
@@ -157,7 +160,7 @@ func insert_new_book(title, body, author, category string) string {
 	return "Libro publicado correctamente"
 }
 
-func insert_data_profile(img, name, phone, description string) {
+func update_data_profile(img, name, phone, description string) {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 	db, err := sql.Open("mysql", link)
 
@@ -165,7 +168,7 @@ func insert_data_profile(img, name, phone, description string) {
 		panic(err)
 	}
 
-	consulta_sql := fmt.Sprintf("insert into dates values('%s','%s','%s','%s')", img, name, phone, description)
+	consulta_sql := fmt.Sprintf("update dates set image_profile = '%s', telefono = '%s', descripcion = '%s' where username = '%s'", img, phone, description, name)
 
 	_, err = db.Query(consulta_sql)
 
