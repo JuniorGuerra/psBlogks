@@ -61,10 +61,33 @@ func main() {
 }
 
 //Pagina del home
+
+type d struct {
+	Ir string
+}
+
+var a string
+
 func home(w http.ResponseWriter, r *http.Request) {
 	tmp, err := template.ParseFiles("public/index.html")
 	if err != nil {
 		panic(err)
 	}
-	tmp.Execute(w, "Helpme")
+
+	cookie, err := r.Cookie("user")
+	if err != nil {
+		a = "Iniciar"
+	} else {
+		a = "Perfil"
+	}
+
+	if cookie.Value == "null" {
+		a = "Iniciar"
+	}
+
+	data := d{
+		Ir: a,
+	}
+
+	tmp.Execute(w, data)
 }
