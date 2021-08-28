@@ -55,6 +55,10 @@ func handleRecuperate(w http.ResponseWriter, r *http.Request) {
 func handleVerifyCode(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("public/recuperate_pass/change/index.html")
 
+	if r.FormValue("e") == "error"{
+		w.Write([]byte("<script>alert('Codigo incorrecto')</script>"))
+	}
+
 	if err != nil {
 		http.Error(w, "el error es: "+err.Error(), http.StatusBadRequest)
 	}
@@ -80,7 +84,7 @@ func verify_code(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/change_password", http.StatusFound)
 		return
 	}
-	http.Redirect(w, r, "/verify_code", http.StatusFound)
+	http.Redirect(w, r, "/verify_code?e='error'", http.StatusFound)
 }
 
 func change_password(w http.ResponseWriter, r *http.Request) {
