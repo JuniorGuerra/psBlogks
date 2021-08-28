@@ -15,7 +15,59 @@ const (
 	host     = "us-cdbr-east-04.cleardb.com:3306"
 	database = "heroku_47385c5b7a6b7fa"
 )
+/*
+func select_view_exist_user(name string) bool {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	consulta := fmt.Sprintf("select username from users where username = %s ", name)
+
+	fmt.Println("Fase: consulta" + consulta)
+	mysql, err := db.Query(consulta)
+
+	if err != nil {
+		panic(err)
+	}
+	a := ""
+
+	mysql.Scan(a)
+
+	db.Close()
+
+	return a == ""
+
+}
+
+func select_view_exist_mail(mail string) bool {
+
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	consulta := fmt.Sprintf("select username from users where email = %s ", mail)
+	mysql, err := db.Query(consulta)
+
+	if err != nil {
+		panic(err)
+	}
+	a := ""
+
+	mysql.Scan(a)
+
+	db.Close()
+
+	return a == ""
+}
+*/
 func insert_new_user(username, email, pass string) bool {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 

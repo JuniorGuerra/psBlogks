@@ -38,6 +38,8 @@ func main() {
 	r.HandleFunc("/static/", pstatic)
 	r.HandleFunc("/verify", datos_login)
 	r.HandleFunc("/verifynew", datos_register)
+	r.HandleFunc("/verify_mail", handlerMail)
+	r.HandleFunc("/register/verify_mail", dMail)
 	r.HandleFunc("/user", query)
 	r.HandleFunc("/user/{user}", user)
 	r.HandleFunc("/delcook", deletecookie)
