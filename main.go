@@ -48,7 +48,14 @@ func main() {
 	r.HandleFunc("/create", handle_create)
 	r.HandleFunc("/Bnew", handle_create)
 	r.HandleFunc("/exit", deletecookie)
+
+	//Recuperate password
 	r.HandleFunc("/pass", recuperate)
+	r.HandleFunc("/recuperate_pass", handleRecuperate)
+	r.HandleFunc("/verify_code", handleVerifyCode)
+	r.HandleFunc("/Dverify_code", verify_code)
+	r.HandleFunc("/change_password", handleChangePassword)
+	r.HandleFunc("/verify_change_password", change_password)
 
 	srv := &http.Server{
 		Handler: r,
