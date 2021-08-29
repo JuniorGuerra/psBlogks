@@ -57,6 +57,9 @@ func main() {
 	r.HandleFunc("/change_password", handleChangePassword)
 	r.HandleFunc("/verify_change_password", change_password)
 
+	//Enviarnos mensaje
+	r.HandleFunc("/sendMessage", sendMessage)
+
 	srv := &http.Server{
 		Handler: r,
 		Addr:    ":" + port,

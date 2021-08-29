@@ -10,8 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
@@ -29,15 +28,14 @@
         <div class="contact-wrapper animated bounceInUp">
             <div class="contact-form">
                 <h3>CONTACTANOS</h3>
-                aoici
-                <form>
+                <form method="GET" action="/sendMessage">
                     <p>
                         <label>NOMBRE COMPLETO</label>
-                        <input type="text" name="fullname">
+                        <input type="text" name="fullname" required>
                     </p>
                     <p>
                         <label>CORREO ELECTRONICO</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" required>
                     </p>
                     <p>
                         <label>NUMERO DE TELEFONO</label>
@@ -49,7 +47,7 @@
                     </p>
                     <p class="block">
                         <label>MENSAJE</label>
-                        <textarea name="message" rows="3"></textarea>
+                        <textarea name="message" rows="3" required></textarea>
                     </p>
                     <p class="block">
                         <button>
@@ -64,11 +62,10 @@
                 <ul>
                     <li><i class="fas fa-map-marker-alt"></i> IBAGUÉ-COLOMBIA</li>
                     <li><i class="fas fa-phone"></i> (+57) 3124948965</li>
-                    <li><i class="fas fa-envelope-open-text"></i> BLOGBOOK@GMAIL.COM</li>
+                    <li><i class="fas fa-envelope-open-text"></i> blogbookresponse@gmail.com</li>
                 </ul>
-                <p>Tu opinión es importante para nuestra comunidad, si tienes alguna duda, sugerencia o algun problema
-                    con la plataforma por favor ponte en contacto con nosotros</p>
-                <p>BLOGBOOK.com</p>
+                <p>Tu opinión es importante para nuestra comunidad, si tienes alguna duda, sugerencia o algun problema con la plataforma por favor ponte en contacto con nosotros</p>
+                <p><a href="http://bsblogbook.herokuapp.com">http://bsblogbook.herokuapp.com</a></p>
             </div>
         </div>
 
