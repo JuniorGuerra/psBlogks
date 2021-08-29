@@ -6,16 +6,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        * {
+            text-align: center;
+            align-items: center;
+        }
+        
+        body {
+            background: #DDD;
+        }
+        
+        h1 {
+            color: blueviolet;
+        }
+        
+        #container {
+            margin-top: 10%;
+        }
+        
+        #Z {
+            background: transparent;
+            color: transparent;
+            border-color: transparent;
+            position: absolute;
+        }
+        
+        input {
+            height: 20px;
+            width: 400px
+        }
+    </style>
+
 </head>
 
 <body>
-    <form action="/verify_change_password" method="get">
-        <p>Passowrd</p>
-        <input type="password" name="pass">
-        <p>Verificar contraseña
-        </p>
-        <input type="password" name="verify_pass"> <input type="submit" value="Confirmar">
-    </form>
+    <div id="container">
+        <form action="/verify_change_password" method="get">
+            <h1>Fromulario para cambia su contraseña</h1>
+
+            <p>
+                Minimo 6 caracteres
+            </p>
+            <p>
+                Las contraseñas deben ser iguales
+            </p>
+
+            <p>Contraseña</p>
+            <input type="password" name="pass" id="pass">
+            <p>Verifique su contraseña</p>
+            <input type="password" name="verify_pass" id="repass">
+            <button type="submit" id="Z">Ir</button>
+        </form>
+        <div id="x">
+
+        </div>
+        <button id="cambiar">Cambiar</button>
+    </div>
+    <script>
+        var btn = document.getElementById("Z")
+        var btnCambiar = document.getElementById("cambiar")
+
+
+        btnCambiar.addEventListener("click", e)
+
+
+        function e() {
+            var verification_contraseña = document.getElementById("repass")
+            var contraseña = document.getElementById("pass")
+            var x = document.getElementById("x")
+
+
+            if (contraseña.value == verification_contraseña.value) {
+                if (contraseña.value != "") {
+                    if (contraseña.value.length > 6) {
+                        btn.click()
+                    } else {
+                        x.innerHTML = "Minimo 6 caracteres"
+                    }
+                } else {
+                    x.innerHTML = "Escriba algo como minimo"
+                }
+            } else {
+                x.innerHTML = "Contraseña no coinciden"
+            }
+        }
+    </script>
 </body>
 
 </html>
