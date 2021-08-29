@@ -84,7 +84,7 @@ func verify_code(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/change_password", http.StatusFound)
 		return
 	}
-	http.Redirect(w, r, "/verify_code?e='error'", http.StatusFound)
+	http.Redirect(w, r, "/verify_code?e=error", http.StatusFound)
 }
 
 func change_password(w http.ResponseWriter, r *http.Request) {
