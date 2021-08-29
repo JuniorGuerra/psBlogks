@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"math/rand"
 	"net/http"
@@ -55,7 +56,7 @@ func handleRecuperate(w http.ResponseWriter, r *http.Request) {
 func handleVerifyCode(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("public/recuperate_pass/change/index.html")
 
-	if r.FormValue("e") == "error"{
+	if r.FormValue("e") == "error" {
 		w.Write([]byte("<script>alert('Codigo incorrecto')</script>"))
 	}
 
@@ -69,6 +70,17 @@ func handleVerifyCode(w http.ResponseWriter, r *http.Request) {
 func handleChangePassword(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("public/recuperate_pass/change/change.html")
 
+	e := r.FormValue("e")
+
+	if e == "vacio" {
+		w.Write([]byte("<script>alert('Los datos de contraseñas no deben ser vacios')</script>"))
+	}
+	if e == "error" {
+		w.Write([]byte("<script>alert('Las contraseñas no coinciden')</script>"))
+	}
+	if e == "fail" {
+		w.Write([]byte("<script>alert('Un error al cambiar la contraseña, comuniquese a soporte')</script>"))
+	}
 	if err != nil {
 		http.Error(w, "el error es"+err.Error(), http.StatusBadRequest)
 	}
@@ -77,6 +89,7 @@ func handleChangePassword(w http.ResponseWriter, r *http.Request) {
 }
 
 //Backend
+
 func verify_code(w http.ResponseWriter, r *http.Request) {
 	code_email := r.FormValue("code")
 	a, _ := strconv.Atoi(code_email)
@@ -88,5 +101,25 @@ func verify_code(w http.ResponseWriter, r *http.Request) {
 }
 
 func change_password(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("<script>alert('Todo disponible para cambiar la contraseña')</script>"))
+	var pass string = r.FormValue("pass")
+	var verify_pass string = r.FormValue("verify_pass")
+
+	if pass == "" || verify_pass == "" {
+		w.Write([]byte("<script>alert('Los datos de contraseñas no deben ser vacios')</script>"))
+		http.Redirect(w, r, "/change_password?e=vacio", http.StatusFound)
+		return
+
+	} else if pass != verify_pass {
+		http.Redirect(w, r, "/change_password?e=error", http.StatusFound)
+		return
+	}
+
+	verificacion := query_change_password(pass, mail)
+	fmt.Println(pass, mail)
+
+	if !verificacion {
+		http.Redirect(w, r, "/change_password?e=fail", http.StatusFound)
+		return
+	}
+	http.Redirect(w, r, "/login?d=exitoso", http.StatusFound)
 }

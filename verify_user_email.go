@@ -48,7 +48,7 @@ func recuperate_password_email(mail string, code int) bool {
 	smtpPort := "587"
 
 	// Message.
-	message := []byte(string("👋Hola un gusto saludarte, Tu codigo para canviar contraseña " + strconv.Itoa(code) + " Si este correo no lo pediste tu hacer caso omiso al mismo") )
+	message := []byte(string("👋Hola un gusto saludarte, Tu codigo para cambiar contraseña " + strconv.Itoa(code) + " Si este correo no lo pediste tu hacer caso omiso al mismo"))
 
 	// Authentication.
 	auth := smtp.PlainAuth("", from, password, smtpHost)

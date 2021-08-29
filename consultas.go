@@ -15,6 +15,7 @@ const (
 	host     = "us-cdbr-east-04.cleardb.com:3306"
 	database = "heroku_47385c5b7a6b7fa"
 )
+
 /*
 func select_view_exist_user(name string) bool {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
@@ -274,4 +275,27 @@ func select_users_query_all(date string) []users_registred {
 	}
 	fmt.Println("Consulta", va)
 	return va
+}
+
+func query_change_password(pass, name string) bool {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	passByte := []byte(pass)
+	hash, err := bcrypt.GenerateFromPassword(passByte, bcrypt.DefaultCost)
+	if err != nil {
+		return err != nil
+	}
+	hashStringPass := string(hash)
+
+	consulta_sql := fmt.Sprintf("update users set contraseña = '%s' where email = '%s'", hashStringPass, name)
+
+	_, err = db.Query(consulta_sql)
+
+	db.Close()
+
+	return err == nil
 }
