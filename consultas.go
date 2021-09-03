@@ -213,6 +213,10 @@ func insert_new_book(title, body, author, category string) string {
 	return "Libro publicado correctamente"
 }
 
+func selectBook(username, title string) {
+	fmt.Println(username, title)
+}
+
 func insert_data_profile(img, name, phone, description string) {
 	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
 	db, err := sql.Open("mysql", link)
