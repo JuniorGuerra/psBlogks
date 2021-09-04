@@ -12,7 +12,7 @@ func handle_create(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("<h1>Creese un usuario para escribir un libro</h1>"))
 		return
 	}
-	t, err := template.ParseFiles("public/Create/editor.html")
+	t, err := template.ParseFiles("public/create/index.html")
 
 	if err != nil {
 		panic(err.Error())

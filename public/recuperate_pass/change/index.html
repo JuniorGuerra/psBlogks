@@ -5,15 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/public/recuperate_pass/change/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <title>Codigo</title>
 </head>
 
 <body>
-    <h1>Ingrese el codigo enviado a su email</h1>
+    <button class="switch" id="switch">
+        <span><i class="fas fa-sun"></i></span>
+        <span><i class="fas fa-moon"></i></span>
+          </button>
+
     <form action="/Dverify_code" method="get">
+        <h1>Ingrese el codigo enviado a su email</h1>
         <input type="number" name="code" id="code">
         <input type="submit" value="Verificar">
     </form>
+    <script src="../static/public/recuperate_pass/change/main.js"></script>
 </body>
 
 </html>
