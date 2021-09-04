@@ -26,6 +26,7 @@ var b_login = document.getElementById("b_login")
 var category = document.getElementById("category")
 var b_register = document.getElementById("b_register")
 var llanada = document.getElementById("llamada")
+var extras = document.getElementById("extras")
 
 
 
@@ -37,6 +38,7 @@ function style() {
         resumen.style.color = "#DDDDDD"
         email.style.color = "#DDDDDD"
         category.style.color="#DDDDDD"
+        extras.style.color="#DDDDDD"
         color = 1
     } else {
         fondo.style.background = "#DDDDDD";
@@ -45,5 +47,6 @@ function style() {
         resumen.style.color = "black"
         email.style.color = "black"
         category.style.color="black"
+        extras.style.color="black"
     }
 }
