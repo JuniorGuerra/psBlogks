@@ -213,8 +213,58 @@ func insert_new_book(title, body, author, category string) string {
 	return "Libro publicado correctamente"
 }
 
-func selectBook(username, title string) {
-	fmt.Println(username, title)
+type booksUser struct {
+	id        string
+	title     string
+	body      string
+	autor     string
+	categoria string
+	fecha     string
+}
+
+func selectAllBookUser(username string) []booksUser {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	v := booksUser{}
+	va := []booksUser{}
+	consulta_sql := "select * from post where autor = '" + username + "'"
+	mysql, err := db.Query(consulta_sql)
+	if err != nil {
+		panic(err)
+	}
+	for mysql.Next() {
+		mysql.Scan(&v.id, &v.title, &v.body, &v.autor, &v.categoria, &v.fecha)
+		va = append(va, v)
+	}
+	db.Close()
+	fmt.Println("Consulta", va)
+	return va
+}
+
+func selectBookUser(username, title string) booksUser {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	v := booksUser{}
+	consulta_sql := "select * from post where autor = '" + username + "' && titulo = '" + title + "'"
+	mysql, err := db.Query(consulta_sql)
+	if err != nil {
+		panic(err)
+	}
+	for mysql.Next() {
+		mysql.Scan(&v.id, &v.title, &v.body, &v.autor, &v.categoria, &v.fecha)
+	}
+	db.Close()
+	return v
 }
 
 func insert_data_profile(img, name, phone, description string) {

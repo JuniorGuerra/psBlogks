@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 
@@ -11,6 +12,7 @@ type dates struct {
 	Name        string
 	Description string
 	Phone       string
+	Books       int32
 }
 
 func user(w http.ResponseWriter, r *http.Request) {
@@ -25,11 +27,21 @@ func user(w http.ResponseWriter, r *http.Request) {
 	user := vars["user"]
 
 	img, name, phone, description := select_user_view(user)
+
+	books_user := selectAllBookUser(name)
+	var x int32
+
+	for range books_user {
+		x++
+	}
+
 	d := dates{
 		Name:        name,
 		Description: description,
 		Phone:       phone,
+		Books:       x,
 	}
+
 	if name == "" && description == "" {
 		w.Write([]byte("<h1>Usuario con informacion no publica</h1>"))
 		return
@@ -38,5 +50,10 @@ func user(w http.ResponseWriter, r *http.Request) {
 	var text string = "<div><img src=\"data:image/png;base64," + img + "\" alt='Imagen profile user' class='perfil_img' id='img'></div>"
 	w.Write([]byte(text))
 	t.Execute(w, d)
+
+	for _, v := range books_user {
+		a := fmt.Sprintf("<div id='date' style='margin-left:70px; color: black;'> <a href='/%s/blog/%s'><h3>%s</h3></a> <p> Creado el: %s</p>", name, v.title, v.title, v.fecha)
+		w.Write([]byte(a))
+	}
 
 }

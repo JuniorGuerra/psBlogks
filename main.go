@@ -45,8 +45,7 @@ func main() {
 	r.HandleFunc("/delcook", deletecookie)
 	r.HandleFunc("/about", terminos)
 	r.HandleFunc("/Contactenos", contactenos)
-	r.HandleFunc("/create", handle_create)
-	r.HandleFunc("/Bnew", handle_create)
+
 	r.HandleFunc("/exit", deletecookie)
 
 	//Recuperate password
@@ -59,6 +58,11 @@ func main() {
 
 	//Enviarnos mensaje
 	r.HandleFunc("/sendMessage", sendMessage)
+
+	r.HandleFunc("/create", handle_create)
+	r.HandleFunc("/Bnew", handle_create)
+	r.HandleFunc("/publicar", HandlePublicar)
+	r.HandleFunc("/{user}/blog/{title}", handle_view_blog)
 
 	srv := &http.Server{
 		Handler: r,

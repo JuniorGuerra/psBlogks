@@ -17,6 +17,7 @@ btn.addEventListener("click", style)
 
 var fondo = document.querySelector("body")
 var texto = document.getElementById("users")
+var date = document.getElementById("date")
 var img = document.getElementById("img")
 var color = 0;
 
@@ -24,9 +25,11 @@ function style() {
     if (color == 0) {
         fondo.style.background = "#000000";
         texto.style.color = "#FFF"
+        date.style.color = "#FFF"
         color = 1
     } else {
         texto.style.color = "#000"
+        date.style.color = "#000"
         fondo.style.background = "#DDDDDD";
 
         color = 0
