@@ -45,15 +45,14 @@ func user(w http.ResponseWriter, r *http.Request) {
 	if name == "" && description == "" {
 		w.Write([]byte("<h1>Usuario con informacion no publica</h1>"))
 		return
-
 	}
 	var text string = "<div><img src=\"data:image/png;base64," + img + "\" alt='Imagen profile user' class='perfil_img' id='img'></div>"
 	w.Write([]byte(text))
 	t.Execute(w, d)
-
+	w.Write([]byte("<div style='margin-left:70px; color: black;'>"))
 	for _, v := range books_user {
-		a := fmt.Sprintf("<div id='date' style='margin-left:70px; color: black;'> <a href='/%s/blog/%s'><h3>%s</h3></a> <p> Creado el: %s</p>", name, v.title, v.title, v.fecha)
+		a := fmt.Sprintf("<a href='/%s/blog/%s'><h3>%s</h3></a> <p> Creado el: %s</p>", name, v.title, v.title, v.fecha)
 		w.Write([]byte(a))
 	}
-
+	w.Write([]byte("</div>"))
 }

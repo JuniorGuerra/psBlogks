@@ -27,8 +27,7 @@ var category = document.getElementById("category")
 var b_register = document.getElementById("b_register")
 var llanada = document.getElementById("llamada")
 var extras = document.getElementById("extras")
-
-
+var books = document.getElementById("extras")
 
 var color = 0;
 function style() {
@@ -39,6 +38,7 @@ function style() {
         email.style.color = "#DDDDDD"
         category.style.color="#DDDDDD"
         extras.style.color="#DDDDDD"
+        books.style.color="#DDDDDD"
         color = 1
     } else {
         fondo.style.background = "#DDDDDD";
@@ -48,5 +48,6 @@ function style() {
         email.style.color = "black"
         category.style.color="black"
         extras.style.color="black"
+        books.style.color="black"
     }
 }

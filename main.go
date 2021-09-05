@@ -59,8 +59,8 @@ func main() {
 	//Enviarnos mensaje
 	r.HandleFunc("/sendMessage", sendMessage)
 
-	r.HandleFunc("/create", handle_create)
-	r.HandleFunc("/Bnew", handle_create)
+	r.HandleFunc("/create", handle_datos_create)
+	r.HandleFunc("/bnew/create", handle_create)
 	r.HandleFunc("/publicar", HandlePublicar)
 	r.HandleFunc("/{user}/blog/{title}", handle_view_blog)
 

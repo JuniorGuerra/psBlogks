@@ -5,6 +5,25 @@ import (
 	"net/http"
 )
 
+var titulo string
+var categoria string
+
+func handle_datos_create(w http.ResponseWriter, r *http.Request) {
+	cookie, _ := r.Cookie("user")
+
+	if cookie == nil {
+		w.Write([]byte("<h1>Creese un usuario para escribir un libro</h1>"))
+		return
+	}
+	t, err := template.ParseFiles("public/create/datos.html")
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	t.Execute(w, nil)
+}
+
 func handle_create(w http.ResponseWriter, r *http.Request) {
 	cookie, _ := r.Cookie("user")
 
@@ -12,6 +31,8 @@ func handle_create(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("<h1>Creese un usuario para escribir un libro</h1>"))
 		return
 	}
+	titulo = r.FormValue("title")
+	categoria = r.FormValue("category")
 	t, err := template.ParseFiles("public/create/index.html")
 
 	if err != nil {
@@ -19,14 +40,6 @@ func handle_create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	t.Execute(w, nil)
-	/*title := "El cantero del diablo"
-	body := "El principe murio en 2021 y el cantero lo violo"
-	author := cookie.Value
-	category := "fantasia"
-
-	result := insert_new_book(title, body, author, category)
-	fmt.Println(result)*/
-
 }
 
 func HandlePublicar(w http.ResponseWriter, r *http.Request) {
@@ -43,6 +56,6 @@ func HandlePublicar(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.Write([]byte(insert_new_book("Titulo", text, cookie.Value, "Prueba")))
+	w.Write([]byte(insert_new_book(titulo, text, cookie.Value, categoria)))
 
 }
