@@ -3,16 +3,16 @@ body {
     transition: 1s;
 }
 
-.h1{
-    color:blueviolet;
+.h1 {
+    color: blueviolet;
 }
 
-.dates_users{
+.dates_users {
     margin-left: 10%;
     transition: 1s;
 }
 
-.perfil_img{
+.perfil_img {
     position: absolute;
     margin-left: 70%;
     width: 300px;
@@ -20,7 +20,6 @@ body {
     border: 1px solid cyan;
     transition: 1s;
 }
-
 
 .switch {
     background: #343D5B;
@@ -68,4 +67,8 @@ body {
     display: block;
     background: none;
     color: #fff;
+}
+
+.p {
+    color: aqua
 }

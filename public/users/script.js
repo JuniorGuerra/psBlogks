@@ -19,6 +19,9 @@ var fondo = document.querySelector("body")
 var texto = document.getElementById("users")
 var date = document.getElementById("date")
 var img = document.getElementById("img")
+var books = document.getElementById("books")
+var p = document.getElementsByClassName("p")
+
 var color = 0;
 
 function style() {
@@ -26,10 +29,14 @@ function style() {
         fondo.style.background = "#000000";
         texto.style.color = "#FFF"
         date.style.color = "#FFF"
+        books.style.color = "#FFF"
+        p.style.color = "#FFF"
         color = 1
     } else {
         texto.style.color = "#000"
         date.style.color = "#000"
+        books.style.color = "#000"
+        p.style.color = "#000"
         fondo.style.background = "#DDDDDD";
 
         color = 0

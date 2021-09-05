@@ -49,9 +49,9 @@ func user(w http.ResponseWriter, r *http.Request) {
 	var text string = "<div><img src=\"data:image/png;base64," + img + "\" alt='Imagen profile user' class='perfil_img' id='img'></div>"
 	w.Write([]byte(text))
 	t.Execute(w, d)
-	w.Write([]byte("<div style='margin-left:70px; color: black;'>"))
+	w.Write([]byte("<div id='books' style='margin-left:70px;'>"))
 	for _, v := range books_user {
-		a := fmt.Sprintf("<a href='/%s/blog/%s'><h3>%s</h3></a> <p> Creado el: %s</p>", name, v.title, v.title, v.fecha)
+		a := fmt.Sprintf("<a href='/%s/blog/%s'><h3>%s</h3></a><p class='p' style='color:red;'> Creado el: %s</p>", name, v.title, v.title, v.fecha)
 		w.Write([]byte(a))
 	}
 	w.Write([]byte("</div>"))
