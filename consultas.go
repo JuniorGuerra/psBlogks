@@ -87,7 +87,6 @@ func insert_new_user(username, email, pass string) bool {
 
 	consulta := fmt.Sprintf("insert into users values ('%s','%s', '%s')", username, email, hashStringPass)
 
-	fmt.Println("Fase: consulta" + consulta)
 	_, err = db.Query(consulta)
 
 	insert_data_profile("", username, "", "")
@@ -134,7 +133,6 @@ func select_user(username, pass string) string {
 		return ""
 	}
 
-	fmt.Println(v.user, v.email)
 	return v.user
 }
 
@@ -160,7 +158,6 @@ func select_gmail(username string) string {
 	if err != nil {
 		return ""
 	}
-	fmt.Println(v.user, v.email)
 	return v.email
 }
 
@@ -242,7 +239,30 @@ func selectAllBookUser(username string) []booksUser {
 		va = append(va, v)
 	}
 	db.Close()
-	fmt.Println("Consulta", va)
+
+	return va
+}
+
+func selectBooks(title string) []booksUser {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	v := booksUser{}
+	va := []booksUser{}
+	consulta_sql := "select * from post where titulo like '%" + title + "%'"
+	mysql, err := db.Query(consulta_sql)
+	if err != nil {
+		panic(err)
+	}
+	for mysql.Next() {
+		mysql.Scan(&v.id, &v.title, &v.body, &v.autor, &v.categoria, &v.fecha)
+		va = append(va, v)
+	}
+	db.Close()
 	return va
 }
 
@@ -318,7 +338,7 @@ func select_users_query_all(date string) []users_registred {
 	v := users_registred{}
 	va := []users_registred{}
 	consulta_sql := "select users.username, dates.descripcion from users, dates where users.username = dates.username && users.username like " + "'%" + date + "%'"
-	fmt.Println(consulta_sql)
+
 	mysql, err := db.Query(consulta_sql)
 	if err != nil {
 		panic(err)
@@ -327,7 +347,7 @@ func select_users_query_all(date string) []users_registred {
 		mysql.Scan(&v.name, &v.info)
 		va = append(va, v)
 	}
-	fmt.Println("Consulta", va)
+
 	return va
 }
 

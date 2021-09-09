@@ -2,68 +2,62 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../static/public/style/style.css" />
-  <link rel="stylesheet" href="../static/public/style/responsive.css">
-  <link rel="stylesheet" href="style/style.css" />
-  <link rel="stylesheet" href="style/responsive.css">
-  <link rel="shortcut icon" href="../static/public/login/Img/logo_blogbook.png" />
-  <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
-  <title>BlogBook</title>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/public/style/style.css" />
+    <link rel="stylesheet" href="../static/public/style/responsive.css">
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/responsive.css">
+    <link rel="shortcut icon" href="../static/public/login/Img/logo_blogbook.png" />
+    <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
+    <title>BlogBook</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 </head>
 
 <body>
-  <header>
-    <div class="ocultar">
-      <button class="switch" id="switch">
+    <header>
+        <div class="ocultar">
+            <button class="switch" id="switch">
         <span><i class="fas fa-sun"></i></span>
         <span><i class="fas fa-moon"></i></span>
       </button>
-    </div>
-    <div class="menu_bar" id="menu_bar">
-      <a href="#" class="bt-menu" id="llamada"></a>
-    </div>
+        </div>
+        <div class="menu_bar" id="menu_bar">
+            <a href="#" class="bt-menu" id="llamada"></a>
+        </div>
 
-    <nav id="nav">
-      <ul>
-   
-        <a href="/"><img class="logo2" src="../static/public/image/logo_blogbook.png" alt="logo_imgone" srcset=""></a>
-        <a href="/"><img class="logo" src="../static/public/image/texto_logo.png" alt="logo_blogbook" srcset=""></a>
+        <nav id="nav">
+            <ul>
+
+                <a href="/"><img class="logo2" src="../static/public/image/logo_blogbook.png" alt="logo_imgone" srcset=""></a>
+                <a href="/"><img class="logo" src="../static/public/image/texto_logo.png" alt="logo_blogbook" srcset=""></a>
+                <li class="active"><a class="a_li" href="/profile">{{.Ir}}</a></li>
+                <li><a class="a_li" href="/Contactenos">Contactenos</a></li>
+                <li><a class="a_li" href="/explorar">Explorar</a></li>
+            </ul>
+        </nav>
 
 
+    </header>
+    <main>
+        <h1 class="title" id="title">
+            Escribe Blog a tu gusto <br /> con nuestro software
+        </h1>
 
-        <li class="active"><a class="a_li" href="/profile">{{.Ir}}</a></li>
-        <li><a class="a_li" href="/Contactenos">Contactenos</a></li>
-        <li><a class="a_li" href="/Explorar">Explorar</a></li>
-      </ul>
-    </nav>
-   
-
-  </header>
-  <main>
-    <h1 class="title" id="title">
-      Escribe Blog a tu gusto <br />
-      con nuestro software
-    </h1>
-
-    <div class="center">
-      <p class="text" id="text">
-        Registrate y comparte con los demas utilizando blogbook, olvidate de
-        la dificultad de editar texto en linea y solo preocupate por tu
-        contenido.
-      </p>
-    </div>
-    <div class="center_button">
-      <a href="/register" id="b_register" class="registrate_button">Registrate Gratis</a>
-      <a href="/login" id="b_login" class="inicia_button">Inicia sesion</a>
-    </div>
-  </main>
-  <script src="../static/public/src/code.js"></script>
-  <script src="src/code.js"></script>
+        <div class="center">
+            <p class="text" id="text">
+                Registrate y comparte con los demas utilizando blogbook, olvidate de la dificultad de editar texto en linea y solo preocupate por tu contenido.
+            </p>
+        </div>
+        <div class="center_button">
+            <a href="/register" id="b_register" class="registrate_button">Registrate Gratis</a>
+            <a href="/login" id="b_login" class="inicia_button">Inicia sesion</a>
+        </div>
+    </main>
+    <script src="../static/public/src/code.js"></script>
+    <script src="src/code.js"></script>
 
 </body>
 
