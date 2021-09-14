@@ -91,18 +91,17 @@ var a string
 func home(w http.ResponseWriter, r *http.Request) {
 	tmp, err := template.ParseFiles("public/index.html")
 	if err != nil {
-		panic(err)
+		fmt.Println("No se encuentra el archivo")
 	}
 
-	cookie, err := r.Cookie("user")
+	cook, err := r.Cookie("user")
 	if err != nil {
 		a = "Iniciar"
 	} else {
 		a = "Perfil"
 	}
-
-	if cookie.Value == "null" {
-		a = "Iniciar"
+	if cook.Value == "null" {
+		a = "Login"
 	}
 
 	data := d{
