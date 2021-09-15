@@ -94,14 +94,15 @@ func home(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("No se encuentra el archivo")
 	}
 
-	cook, err := r.Cookie("user")
+	cookie, err := r.Cookie("user")
+	fmt.Println(cookie.Value)
 	if err != nil {
 		a = "Iniciar"
 	} else {
 		a = "Perfil"
 	}
-	if cook.Value == "null" {
-		a = "Login"
+	if cookie.Value == "null" {
+		a = "Iniciar"
 	}
 
 	data := d{
