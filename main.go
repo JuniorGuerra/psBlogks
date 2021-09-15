@@ -98,10 +98,11 @@ func home(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		a = "Iniciar"
 	} else {
-		a = "Perfil"
-	}
-	if cookie == nil {
-		a = "Iniciar"
+		if cookie.Value == "null" {
+			a = "Iniciar"
+		} else {
+			a = "Perfil"
+		}
 	}
 
 	data := d{
