@@ -101,9 +101,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 	} else {
 		a = "Perfil"
 	}
-	if cookie.Value == "null" {
-		a = "Iniciar"
-	}
 
 	data := d{
 		Ir: a,
