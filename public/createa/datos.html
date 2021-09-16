@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/public/create/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <title>Datos blog</title>
+</head>
+
+<body>
+    <button class="switch" id="switch">
+        <span><i class="fas fa-sun"></i></span>
+        <span><i class="fas fa-moon"></i></span>
+          </button>
+    <form action="/bnew/create" method="GET">
+        <h1>INGRESE EL TITULO</h1>
+        <input type="text" name="title" style="width:220px;height:15px">
+        <br><br>
+        <label for="">Seleccione la categoria deseada</label>
+        <p>
+            <input type="radio" name="category" value="gastronomia">Gastronomia
+        </p>
+        <p>
+            <input type="radio" name="category" value="Juegos"> VideoJuegos
+        </p>
+        <p>
+            <input type="radio" name="category" value="Tecnologia"> Tecnologias
+        </p>
+
+        <input type="submit" value="Crear">
+
+    </form>
+    <script src="../static/public/create/styles/main.js"></script>
+</body>
+
+</html>

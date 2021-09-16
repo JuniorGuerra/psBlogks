@@ -64,5 +64,4 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("</div>"))
 
 	w.Write([]byte(text))
-
 }

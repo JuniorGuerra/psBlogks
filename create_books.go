@@ -15,7 +15,7 @@ func handle_datos_create(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("<h1>Creese un usuario para escribir un libro</h1>"))
 		return
 	}
-	t, err := template.ParseFiles("public/create/datos.html")
+	t, err := template.ParseFiles("public/create_blog/datos.html")
 
 	if err != nil {
 		panic(err.Error())
@@ -33,7 +33,7 @@ func handle_create(w http.ResponseWriter, r *http.Request) {
 	}
 	titulo = r.FormValue("title")
 	categoria = r.FormValue("category")
-	t, err := template.ParseFiles("public/create/index.html")
+	t, err := template.ParseFiles("public/create_blog/index.html")
 
 	if err != nil {
 		panic(err.Error())
