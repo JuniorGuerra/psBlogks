@@ -34,9 +34,9 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 	gmail_user := select_gmail(cookie.Value)
 	books_user := selectAllBookUser(cookie.Value)
 	var x int
-	var nameBook string
+	var nameBook []string
 	for _, v := range books_user {
-		nameBook += v.title + "."
+		nameBook = append(nameBook, v.title)
 		x++
 	}
 
@@ -51,12 +51,18 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 		Resumen:   resume_user,
 		Email:     gmail_user,
 		Books:     x,
-		NameBooks: nameBook,
+		NameBooks: "Presione uno para editar",
 	}
 
 	var text string = "<a href='/user/" + cookie.Value + "'><img class='perfil_img' src=\"data:image/png;base64," + image_user + "\" alt='Imagen profile user'>"
 
 	tmp.Execute(w, user_data)
+	w.Write([]byte("<div style='margin-top:-30px'>"))
+	for _, v := range nameBook {
+		w.Write([]byte("<p style='margin-left:7%; font-size:1.5rem;' >" + v + "</p>"))
+	}
+	w.Write([]byte("</div>"))
+
 	w.Write([]byte(text))
 
 }
