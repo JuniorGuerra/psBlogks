@@ -210,6 +210,21 @@ func insert_new_book(title, body, author, category string) string {
 	return "Libro publicado correctamente"
 }
 
+func update_book(id, text string) bool {
+	link := fmt.Sprintf("%s:%s@tcp(%s)/%s", root, key, host, database)
+	db, err := sql.Open("mysql", link)
+
+	if err != nil {
+		panic(err)
+	}
+
+	consulta_sql := fmt.Sprintf("UPDATE post SET texto='%s'  WHERE idpost='%s'", text, id)
+	_, err = db.Query(consulta_sql)
+	fmt.Println(consulta_sql)
+
+	return err == nil
+}
+
 type booksUser struct {
 	id        string
 	title     string

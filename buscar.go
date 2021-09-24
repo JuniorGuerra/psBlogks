@@ -21,7 +21,6 @@ func handler_buscar(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/blogs/"+r.FormValue("query"), http.StatusFound)
 		return
 	}
-
 	t, err := template.ParseFiles("public/buscar_blog/index.html")
 	if err != nil {
 		fmt.Println(err.Error())

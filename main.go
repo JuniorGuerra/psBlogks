@@ -66,7 +66,13 @@ func main() {
 
 	//Buscar libros
 	r.HandleFunc("/explorar", handler_buscar)
+
 	r.HandleFunc("/blogs/{blogs}", handler_blogs)
+
+	//Editar blog
+	r.HandleFunc("/{user}/be/{title}", handle_edit_book)
+	r.HandleFunc("/update", handler_update)
+
 	srv := &http.Server{
 		Handler: r,
 		Addr:    ":" + port,

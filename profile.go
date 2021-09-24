@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -59,7 +60,9 @@ func handle_perfil(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, user_data)
 	w.Write([]byte("<div style='margin-top:-30px'>"))
 	for _, v := range nameBook {
-		w.Write([]byte("<p style='margin-left:7%; font-size:1.5rem;' >" + v + "</p>"))
+		fmt.Println(v)
+		//<a href='/%s/be/%s'> %s </a>
+		w.Write([]byte("<p style='margin-left:7%; font-size:1.5rem;'><a href='/" + cookie.Value + "/be/" + v + "'>" + v + "</a></p>"))
 	}
 	w.Write([]byte("</div>"))
 
