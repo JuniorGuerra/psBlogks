@@ -1,0 +1,82 @@
+/*
+Colores de la pagina:
+
+Negro: 000000
+Cian: 00E1D8
+Fusia: C80F53
+Grisesito: DDDDDD
+*/
+@media screen and (max-width: 800px) {
+  body {
+    padding-top: 70px;
+  }
+  li {
+    float: none;
+    text-align-last: left;
+  }
+
+  .menu_bar {
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #000000;
+  }
+
+  .menu_bar .bt-menu {
+    display: block;
+    padding: 22px;
+    color: #fff;
+    overflow: hidden;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  header nav {
+    width: 70%;
+    height: calc(100% - 80px);
+    position: fixed;
+    right: 100%;
+    margin: 0;
+    overflow: scroll;
+    
+  }
+
+  #btn_style {
+    top: 0;
+    margin-left: 70%;
+    float: right;
+  }
+
+  .title {
+     margin-top: 30px;
+    font-size: 1.5rem;
+  }
+  .center {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+  }
+  .text {
+    font-size: 1rem;
+  }
+
+  .center_button {
+    margin-left: 5%;
+    margin-right: 5%;
+    size: 1rem;
+  }
+  .inicia_button {
+    font-size: 1rem;
+  }
+  
+  .registrate_button {
+    font-size: 1rem;
+    margin-right: 5px;
+    border-radius: 5px;
+    height: 28px;
+    line-height: 1.5;
+  }
+}

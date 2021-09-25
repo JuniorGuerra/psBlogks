@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@media sreen and (max-width:800px){
+  body{
+    padding-top: 70px;
+    
+  }
+  .form-register {
+    width: 400px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: rgb(252, 246, 246);
+    box-shadow: 7px 13px 37px rgb(106, 245, 250);
+    background-size: cover;
+  }
+  .form-register h4 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00E1D8;
+    text-align: center;
+  }
+  
+  .controls {
+    width: 100%;
+    background: #B4CBD9;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: black;
+  }
+  
+  .form-register p {
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+  }
+  
+  .form-register a {
+    color: #00E1D8;
+    text-decoration: none;
+  }
+  
+  .form-register a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .form-register .botons {
+    width: 40%;
+    background: #3B4B59;
+    border: none;
+    padding: 10px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  .form-register .boton2 {
+    width: 40%;
+    background: #3B4B59;
+    border: none;
+    padding: 10px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    
+  }
+}
+body {
+  background-color: #dddddd;
+  background-image: url('logo2_blogbook.png');
+  background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+
+  
+}
+body.dark {
+  background: #111111;
+  background-image: url('logo2_blogbook.png');
+  background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+
+.form-register {
+  width: 400px;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  background-color: white;
+  color: rgb(252, 246, 246);
+  box-shadow: 7px 13px 37px rgb(238, 31, 210);
+  background-size: cover;
+
+}
+body.dark .form-register{
+  background-color: black;
+  box-shadow: 7px 13px 37px rgb(39, 202, 252);
+}
+
+.form-register h4 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: black;
+  text-align: center;
+}
+body.dark h4{
+  color: #00E1D8;
+}
+body.dark p{
+  color: white;
+}
+body.dark a{
+  color:#00E1D8
+}
+
+.controls {
+  width: 100%;
+  background: #B4CBD9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: black;
+}
+
+.form-register p {
+  height: 20px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+  color:black
+}
+
+.form-register a {
+  color: #e70ac2;
+  text-decoration: none;
+}
+
+.form-register a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.form-register .botons {
+  width: 40%;
+  background: #3B4B59;
+  border: none;
+  padding: 10px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.form-register .boton2 {
+  width: 40%;
+  background: #3B4B59;
+  border: none;
+  padding: 10px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+  border-radius: 10px;
+  
+}
+
+.switch {
+  background: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  outline: none;
+}
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.switch.active {
+  background: rgb(184, 2, 159);
+  color: #000;
+}
+
+.switch.active::after {
+  right: 0;
+  left: unset;
+}
+
+.switch span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+}
+img{
+  position: absolute;
+  left: 90px;
+  bottom: 90px;
+}
+

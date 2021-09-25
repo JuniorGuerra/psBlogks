@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/8f1c504e1e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../static/public/buscar_blog/image.jpg);
+            height: 100vh;
+            background-size: cover;
+        }
+        
+        .buscar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #069;
+            top: 50%;
+            padding: 10px;
+            height: 80px;
+            border-radius: 40px;
+        }
+        
+        .buscar_texto {
+            border: none;
+            background: none;
+            outline: none;
+            color: white;
+            font-size: 20px;
+            float: left;
+            line-height: 60px;
+            transition: .3s;
+            width: 0;
+        }
+        
+        .boton {
+            width: 40px;
+            height: 40px;
+            text-decoration: none;
+            color: white;
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+        }
+        /*==Responsive***/
+        
+        @media screen and (min-width:480px) {
+            .buscar:hover>.buscar_texto {
+                width: 190px;
+            }
+        }
+        
+        @media screen and (min-width:768px) {
+            .buscar:hover>.buscar_texto {
+                width: 300px;
+            }
+        }
+        
+        @media screen and (min-width:1024px) {
+            .buscar:hover>.buscar_texto {
+                width: 580px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buscar">
+        <form action="/explorar" method="get" class="buscar">
+            <input type="text" name="query" id="" class="buscar_texto">
+            <button type="submit" class='boton'>
+                <span><i class="fas fa-search"></i></span>
+            </button>
+            </a>
+        </form>
+    </div>
+</body>
+
+</html>

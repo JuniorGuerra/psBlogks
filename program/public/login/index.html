@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/a32a015951.js"></script>
+    <link rel="stylesheet" href="../static/public/login/Style.css" />
+    <link rel="shortcut icon" href="../static/public/login/Img/logo_blogbook.png" />
+    <script src="../static/public/login/main.js" type="text/javascript"></script>
+    <title>BlogBook</title>
+</head>
+
+<body onload="oscuro()" id="body">
+    <div class="solo">
+        <button class="switch" id="switchs">
+            <span><i class="fas fa-sun" id="fast"></i></span>
+            <span><i class="fas fa-moon" id="fast"></i></span>
+        </button>
+    </div>
+
+    <form class="formulario" id="form" action="/verify">
+        <!--Error todo nose de Alexis el > De la imagen-->
+        <img class="imag" src="../static/public/login/Img/Eslogan2_blogbook.png" />
+        <div class="contenedor" id="contenedor">
+            <div class="input-contenedor" id="input-cont">
+                <i class="fas fa-user" id="fas"></i>
+                <input type="text" required name="email" re: class="correo" id="correo"
+                    placeholder="Correo Electrónico" />
+            </div>
+
+            <div class="input-contenedor" id="input-cont">
+                <i class="fas fa-key" id="fas2"></i>
+                <input type="password" required class="contra" name="pass" id="contra" placeholder="Contraseña" />
+            </div>
+
+            <input type="submit" value="Iniciar Sesión" class="button" id="inicio" />
+            <p class="text">
+                <a class="olvido" id="olvido" href="/pass">¿Olvidaste tu contraseña?</a>
+            </p>
+            <p class="text" id="no_cuenta">
+                ¿No Tienes Una Cuenta?
+                <a class="link" id="link" href="/register">Registrate Aquí</a>
+            </p>
+        </div>
+    </form>
+</body>
+
+</html>
