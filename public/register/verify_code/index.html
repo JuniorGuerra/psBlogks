@@ -6,14 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * body {
+            background-image: url("../static/public/recuperate_pass/change/Eslogan5_blogbook.png");
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #DDD;
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .boton {
+            margin-left: 275px;
+        }
+        
+        .cuadro {
+            margin: auto;
+            width: 600px;
+            background-color: #ddddddda;
+            margin-top: 17%;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #000000;
+            color: #000000;
+            text-decoration: none;
+            text-align: center;
+            color: #000000;
+            font-size: 20px;
+            text-shadow: 0 0 4px #00E1D8;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Ingrese el codigo para registrar su correo</h1>
-    <form action="/register/verify_mail">
-        <input type="number" name="code">
-        <input type="submit" value="Vericiar codigo">
-    </form>
+
+    <div class="cuadro">
+        <h1>Ingresa el codigo de verificacion que has recibido en tu correo</h1>
+        <div class="boton">
+            <form action="/register/verify_mail">
+
+
+                <input type="number" name="code">
+                <input type="submit" value="Vericiar codigo">
+
+
+
+            </form>
+        </div>
+    </div>
+    </div>
 </body>
 
 </html>
